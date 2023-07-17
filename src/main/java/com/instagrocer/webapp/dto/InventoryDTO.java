@@ -10,37 +10,32 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CatalogDTO {
+public class InventoryDTO {
 	
-	@NotEmpty
-	//@Size(min = 3, max = 10, message = "user name lenght shud be between 3 and 10")
+	private int itemId;
 	private String title;
-	
-//	@Email
-//	private String email;
-	
-//	@NotEmpty
-	//@Size(min = 3, max=10, message="user password shud be between 3 and 10")
-	//private String password;
-	
-	@NotEmpty
 	private String type;
-	
-	private String description;
-	private String price;
-	private String rating;
-	
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
 	public String getType() {
 		return type;
 	}
 	public void setType(String type) {
 		this.type = type;
+	}
+	private String description;
+	private Float price;
+	private Integer quantity;
+	private String quantityDate;
+	public int getItemId() {
+		return itemId;
+	}
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getDescription() {
 		return description;
@@ -48,18 +43,24 @@ public class CatalogDTO {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPrice() {
+	public Float getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
-	public String getRating() {
-		return rating;
+	public Integer getQuantity() {
+		return quantity;
 	}
-	public void setRating(String rating) {
-		this.rating = rating;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
-
+	public String getQuantityDate() {
+		return quantityDate;
+	}
+	public void setQuantityDate(String quantityDate) {
+		this.quantityDate = quantityDate;
+	}
+	
 	
 }

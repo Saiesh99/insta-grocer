@@ -1,30 +1,22 @@
-package com.instagrocer.webapp.entity;
+package com.instagrocer.webapp.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "catalog")
-public class CatalogEntity {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Data
+public class OrderItemDTO {
+	
 	private int id;
 	private String title;
-	private String type;
+	private Integer Quantity;
 	private String description;
 	private Float price;
-	private Integer rating;
 	public int getId() {
 		return id;
 	}
@@ -37,11 +29,11 @@ public class CatalogEntity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getType() {
-		return type;
+	public Integer getQuantity() {
+		return Quantity;
 	}
-	public void setType(String type) {
-		this.type = type;
+	public void setQuantity(Integer quantity) {
+		Quantity = quantity;
 	}
 	public String getDescription() {
 		return description;
@@ -55,11 +47,8 @@ public class CatalogEntity {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-	public Integer getRating() {
-		return rating;
-	}
-	public void setRating(Integer rating) {
-		this.rating = rating;
-	}
+	
+	
 
+	
 }

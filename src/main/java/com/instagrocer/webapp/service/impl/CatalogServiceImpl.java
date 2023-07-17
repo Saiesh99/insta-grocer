@@ -38,19 +38,16 @@ public class CatalogServiceImpl implements CatalogService{
 //		return modelMapper.map(updatedUser, CatalogDTO.class);
 //	}
 //
-//	@Override
-//	public CatalogDTO getUserById(Integer userId) {
-//		CatalogEntity sonyLivUserEntity = sonyLivUserRepo.findById(userId).get();
-//		return modelMapper.map(sonyLivUserEntity, CatalogDTO.class); 
-//	}
+	public List<CatalogDTO> getCategoriesByType(String type) {
+		List<CatalogEntity> catalogs = catalogRepo.findByType(type);
+		List<CatalogDTO> catalogDTOList = catalogs.stream().map(a -> modelMapper.map(a, CatalogDTO.class)).collect(Collectors.toList());
+		return catalogDTOList; 
+	}
 
 	@Override
 	public List<CatalogDTO> getAllUsers() {
 		List<CatalogEntity> catalogs = catalogRepo.findAll();
-		System.out.println(catalogs.get(0).getName());
-
 		List<CatalogDTO> catalogDTOList = catalogs.stream().map(a -> modelMapper.map(a, CatalogDTO.class)).collect(Collectors.toList());
-		 System.out.println(catalogDTOList.get(0).getName());
 		return catalogDTOList;
 	}
 

@@ -7,10 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.instagrocer.webapp.entity.CatalogEntity;
+import com.instagrocer.webapp.entity.OrderEntity;
 
-public interface CatalogRepo extends JpaRepository<CatalogEntity, Integer>{
+public interface OrderRepo extends JpaRepository<OrderEntity, Integer>{
 	
-    @Query("SELECT e FROM CatalogEntity e WHERE e.type = :type")
-    List<CatalogEntity> findByType(@Param("type") String type);
+//    @Query("SELECT e FROM CatalogEntity e WHERE e.type = :type")
+//    List<CatalogEntity> findByType(@Param("type") String type);
 
 }

@@ -16,21 +16,27 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.instagrocer.webapp.dto.CatalogDTO;
+import com.instagrocer.webapp.dto.OrderRequestDTO;
+import com.instagrocer.webapp.entity.OrderEntity;
 import com.instagrocer.webapp.service.CatalogService;
+import com.instagrocer.webapp.service.OrderService;
 
 import jakarta.validation.Valid;
 
 @RestController
-public class CatalogController {
+public class OrderController {
 	
 	@Autowired
 	private CatalogService catalogService;
+	
+	@Autowired
+	private OrderService orderService;
 
-//	@PostMapping("/create")
-//	public ResponseEntity<SonyLivUserDTO> createUser(@Valid @RequestBody SonyLivUserDTO userDTO){
-//		SonyLivUserDTO createdUserDTO = sonyLivUserService.createUser(userDTO);
-//		return new ResponseEntity<>(createdUserDTO,HttpStatus.CREATED);
-//	}
+	@PostMapping("/createOrder")
+	public ResponseEntity<OrderRequestDTO> createOrder(@RequestBody OrderEntity orderRequestDTO){
+		OrderRequestDTO createdUserDTO = orderService.createOrder(orderRequestDTO);
+		return new ResponseEntity<>(createdUserDTO,HttpStatus.CREATED);
+	}
 //	
 //	@PutMapping("/update/{userId}")
 //	public ResponseEntity<SonyLivUserDTO> updateUser(@Valid @RequestBody SonyLivUserDTO userDTO,@PathVariable("userId") Integer userId){
@@ -44,16 +50,16 @@ public class CatalogController {
 //		return new ResponseEntity<>(new DeleteApiResponse("user deletd successfully",true),HttpStatus.OK);
 //	}
 //	
-	@GetMapping("/catalogs")
-	public ResponseEntity<List<CatalogDTO>> getAllUsers(){
-		//this.userService.getAllUsers();
-		return new ResponseEntity<>(catalogService.getAllUsers(),HttpStatus.OK);
-	}
-	
-	@GetMapping("/catalogsByType")
-	public ResponseEntity<List<CatalogDTO>> getCatalogsByType(@RequestParam("type") String type){
-		//this.userService.getAllUsers();
-		return new ResponseEntity<>(catalogService.getCategoriesByType(type),HttpStatus.OK);
-	}	
+//	@GetMapping("/catalogs")
+//	public ResponseEntity<List<CatalogDTO>> getAllUsers(){
+//		//this.userService.getAllUsers();
+//		return new ResponseEntity<>(catalogService.getAllUsers(),HttpStatus.OK);
+//	}
+//	
+//	@GetMapping("/catalogsByType")
+//	public ResponseEntity<List<CatalogDTO>> getCatalogsByType(@RequestParam("type") String type){
+//		//this.userService.getAllUsers();
+//		return new ResponseEntity<>(catalogService.getCategoriesByType(type),HttpStatus.OK);
+//	}	
 
 }

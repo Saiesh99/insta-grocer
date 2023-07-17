@@ -14,34 +14,35 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "catalog")
-public class CatalogEntity {
+@Table(name = "inventory")
+public class InventoryEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int itemId;
 	private String title;
 	private String type;
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	private String description;
 	private Float price;
-	private Integer rating;
-	public int getId() {
-		return id;
+	private Integer quantity;
+	private String quantityDate;
+	public int getItemId() {
+		return itemId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
 	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
 	}
 	public String getDescription() {
 		return description;
@@ -55,11 +56,18 @@ public class CatalogEntity {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
-	public Integer getRating() {
-		return rating;
+	public Integer getQuantity() {
+		return quantity;
 	}
-	public void setRating(Integer rating) {
-		this.rating = rating;
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
 	}
-
+	public String getQuantityDate() {
+		return quantityDate;
+	}
+	public void setQuantityDate(String quantityDate) {
+		this.quantityDate = quantityDate;
+	}
+	
+	
 }
