@@ -16,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.instagrocer.webapp.dto.CatalogDTO;
+import com.instagrocer.webapp.dto.Order;
+import com.instagrocer.webapp.dto.OrderByIdResponse;
 import com.instagrocer.webapp.dto.OrderRequestDTO;
+import com.instagrocer.webapp.dto.OrderResponse;
 import com.instagrocer.webapp.entity.OrderEntity;
 import com.instagrocer.webapp.service.CatalogService;
 import com.instagrocer.webapp.service.OrderService;
@@ -33,8 +36,10 @@ public class OrderController {
 	private OrderService orderService;
 
 	@PostMapping("/createOrder")
-	public ResponseEntity<OrderRequestDTO> createOrder(@RequestBody OrderEntity orderRequestDTO){
-		OrderRequestDTO createdUserDTO = orderService.createOrder(orderRequestDTO);
+	public ResponseEntity<OrderResponse> createOrder(@RequestBody Order order){
+		//System.out.println("in " + order.getItems().get(1).getTitle());
+		OrderResponse createdUserDTO = orderService.createOrder(order);
+        
 		return new ResponseEntity<>(createdUserDTO,HttpStatus.CREATED);
 	}
 //	
@@ -56,10 +61,10 @@ public class OrderController {
 //		return new ResponseEntity<>(catalogService.getAllUsers(),HttpStatus.OK);
 //	}
 //	
-//	@GetMapping("/catalogsByType")
-//	public ResponseEntity<List<CatalogDTO>> getCatalogsByType(@RequestParam("type") String type){
-//		//this.userService.getAllUsers();
-//		return new ResponseEntity<>(catalogService.getCategoriesByType(type),HttpStatus.OK);
-//	}	
+	@GetMapping("/orderById/{id}")
+	public ResponseEntity<OrderByIdResponse> getOrderById(@PathVariable("id") int id){
+		//this.userService.getAllUsers();
+		return new ResponseEntity<>(orderService.getOrderById(id),HttpStatus.OK);
+	}	
 
 }

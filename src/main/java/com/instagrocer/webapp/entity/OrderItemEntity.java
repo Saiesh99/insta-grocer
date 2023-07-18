@@ -28,10 +28,20 @@ public class OrderItemEntity {
 	private Integer Quantity;
 	private String description;
 	private Float price;
+	private int orderId;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "order_id")
-	private OrderEntity orderEntity;
+	
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	@JoinColumn(name = "order_id")
+//	private OrderEntity orderEntity;
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
 
 	public int getId() {
 		return id;
@@ -72,14 +82,14 @@ public class OrderItemEntity {
 	public void setPrice(Float price) {
 		this.price = price;
 	}
+//
+//	public OrderEntity getOrderEntity() {
+//		return orderEntity;
+//	}
 
-	public OrderEntity getOrderEntity() {
-		return orderEntity;
-	}
-
-	public void setOrderEntity(OrderEntity orderEntity) {
-		this.orderEntity = orderEntity;
-	}
+//	public void setOrderEntity(OrderEntity orderEntity) {
+//		this.orderEntity = orderEntity;
+//	}
 	
 	
 

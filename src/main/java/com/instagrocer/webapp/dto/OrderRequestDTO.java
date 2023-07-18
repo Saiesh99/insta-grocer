@@ -2,6 +2,8 @@ package com.instagrocer.webapp.dto;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -15,20 +17,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class OrderRequestDTO {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+public class OrderRequestDTO{
+
+	//private int id;
 	private String user;
 	private Float amount;
-	private List<OrderItemDTO> items;
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
+	private OrderItemDTO items;
+//	public int getId() {
+//		return id;
+//	}
+//	public void setId(int id) {
+//		this.id = id;
+//	}
 	public String getUser() {
 		return user;
 	}
@@ -41,14 +41,98 @@ public class OrderRequestDTO {
 	public void setAmount(Float amount) {
 		this.amount = amount;
 	}
-	public List<OrderItemDTO> getOrderItemList() {
+	public OrderItemDTO getOrderItemList() {
 		return items;
 	}
-	public void setOrderItemList(List<OrderItemDTO> orderItemList) {
+	public void setOrderItemList(OrderItemDTO orderItemList) {
 		this.items = orderItemList;
 	} 
 	
+	public static class OrderItemDTO {
+		
+		private String title;
+		private Integer Quantity;
+		private String description;
+		private Float price;
+//		public int getId() {
+//			return id;
+//		}
+//		public void setId(int id) {
+//			this.id = id;
+//		}
+		public String getTitle() {
+			return title;
+		}
+		public void setTitle(String title) {
+			this.title = title;
+		}
+		public Integer getQuantity() {
+			return Quantity;
+		}
+		public void setQuantity(Integer quantity) {
+			Quantity = quantity;
+		}
+		public String getDescription() {
+			return description;
+		}
+		public void setDescription(String description) {
+			this.description = description;
+		}
+		public Float getPrice() {
+			return price;
+		}
+		public void setPrice(Float price) {
+			this.price = price;
+		}
+		
+		
+
+		
+	}
+//	public static class OrderItemDTO {
+//		
+//		private String title;
+//		private Integer Quantity;
+//		private String description;
+//		private Float price;
+////		public int getId() {
+////			return id;
+////		}
+////		public void setId(int id) {
+////			this.id = id;
+////		}
+//		public String getTitle() {
+//			return title;
+//		}
+//		public void setTitle(String title) {
+//			this.title = title;
+//		}
+//		public Integer getQuantity() {
+//			return Quantity;
+//		}
+//		public void setQuantity(Integer quantity) {
+//			Quantity = quantity;
+//		}
+//		public String getDescription() {
+//			return description;
+//		}
+//		public void setDescription(String description) {
+//			this.description = description;
+//		}
+//		public Float getPrice() {
+//			return price;
+//		}
+//		public void setPrice(Float price) {
+//			this.price = price;
+//		}
+//		
+//		
+//
+//		
+//	}
 	
 
 	
 }
+
+
